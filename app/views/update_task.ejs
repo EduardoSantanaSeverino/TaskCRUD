@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><%= title %></title>
+
+</head>
+<body>
+<form method = "post">
+	
+	<table align="center" >
+		<tr>
+            <td>
+                <div><label>Task ID:</label></div>
+            </td>
+        
+            <td>
+                <div><label>Task Name:</label></div>
+
+            </td>
+            
+            <td>
+               <div><label>Task Description:</label></div>
+            </td>
+            
+            <td>
+                <div><label>Start Date:</label></div>
+            </td>
+            
+            <td>
+				<div><label>End date </label></div>
+            </td>
+            
+            <td>
+                <div><label>Owner </label></div>
+            </td>
+
+            <td>
+                <div><label>Update </label></div>
+            </td>
+
+            <td>
+                <div><label>Delete </label></div>
+            </td>
+        </tr>
+	
+
+	<% tasks.forEach(function(task){ %>
+	
+		<tr>
+            <td><%= task.taskId %></td>
+            
+            <td><%= task.taskName %></td>
+            
+            <td><%= task.taskDescription %></td>
+            
+            <td><%= task.startDate %></td>
+            
+            <td><%= task.endDate %></td>
+
+			<td><%= task.owner %></td>
+
+            <td>
+				<input type="submit" formaction="/list_tasks/<%= task.taskId %>?_method=PUT" value="Update Task" style="width: 200px"/>
+            </td>
+            <td>
+				<input type="submit" formaction="/list_tasks/<%= task.taskId %>?_method=DEL" value="Delete Task" style="width: 200px"/>
+            </td>
+        </tr>
+    
+	
+
+	<% })%>
+	
+	</table>
+
+
+</form>
+
+</body>
+
+</html>
